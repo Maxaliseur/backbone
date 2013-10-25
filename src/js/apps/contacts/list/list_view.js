@@ -21,9 +21,17 @@ define(["app",
       triggers:{
         "click button.js-new" : 'contact:new'
       },
+      events:{
+         "click #filter-form": 'filterPersons'
+      },
 
       ui: {
         criterion: "input.js-filter-criterion"
+      },
+
+      filterPersons: function(e){
+        e.preventDefault();
+        this.trigger('contacts:filter', $(this.ui.criterion).val());
       },
 
       onSetFilterCriterion: function(criterion){
@@ -36,7 +44,7 @@ define(["app",
       template: listItemTpl,
 
       events: {
-        "click": "highlightName"
+        "click": "highlightName",
       },
 
       flash: function(cssClass){
