@@ -22,7 +22,8 @@ define(["app",
         "click button.js-new" : 'contact:new'
       },
       events:{
-         "click #filter-form": 'filterPersons'
+         "submit #filter-form": 'filterPersons',
+         
       },
 
       ui: {
@@ -33,6 +34,7 @@ define(["app",
         e.preventDefault();
         this.trigger('contacts:filter', $(this.ui.criterion).val());
       },
+      
 
       onSetFilterCriterion: function(criterion){
         this.ui.criterion.val(criterion);
@@ -45,6 +47,12 @@ define(["app",
 
       events: {
         "click": "highlightName",
+        "click .supprimer": 'deletePerson',
+      },
+
+      deletePerson: function(e){
+        console.log(this.model)
+        this.trigger("contact:delete", this.model);
       },
 
       flash: function(cssClass){

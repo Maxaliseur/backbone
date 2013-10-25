@@ -9,7 +9,7 @@
 	</button>
 </td>
 <td>
-	<button class="btn btn-danger">
+	<button class="btn btn-danger supprimer">
 		<i class="icon-trash"></i>
 		 Delete
 	</button>
